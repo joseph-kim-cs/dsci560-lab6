@@ -9,7 +9,7 @@ Create a docker container: docker compose up -d
 
 Make a copy of the env, and rename to .env
 
-To run the app: python main.py
+To run the pipeline: python scripts/pipeline.py
 
 
 

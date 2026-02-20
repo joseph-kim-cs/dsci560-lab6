@@ -1,5 +1,5 @@
 MYSQL_HOST=127.0.0.1
 MYSQL_PORT=3307
-MYSQL_DB=reddit_app
+MYSQL_DB=oil_app
 MYSQL_USER=appuser
 MYSQL_PASSWORD=apppass
