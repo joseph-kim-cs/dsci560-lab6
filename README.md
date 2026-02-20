@@ -9,7 +9,7 @@ Create a docker container: docker compose up -d
 
 Make a copy of the env, and rename to .env
 
-To run the pipeline: python scripts/pipeline.py
+To run the pipeline: python scripts/pipeline.py (takes around 1 hour for all files to be analyzed)
 
 
 
