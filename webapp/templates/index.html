@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Oil Wells Map</title>
+    <meta charset="utf-8" />
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <style>
+        #map { height: 90vh; }
+    </style>
+</head>
+<body>
+    <h2>Oil Wells Viewer</h2>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([47, -100], 6);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        fetch('/api/wells')
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(well => {
+                    if (well.latitude && well.longitude) {
+                        let marker = L.marker([well.latitude, well.longitude]).addTo(map);
+                        marker.bindPopup(`
+                            <b>${well.well_name_and_number || "N/A"}</b><br/>
+                            API: ${well.api_number_10 || "N/A"}<br/>
+                            Source: ${well.source_pdf}
+                        `);
+                    }
+                });
+            });
+    </script>
+</body>
+</html>
