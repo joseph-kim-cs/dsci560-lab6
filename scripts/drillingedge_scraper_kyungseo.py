@@ -1,3 +1,4 @@
+# Kyung Seo version: coordinate enrichment scraper for DrillingEdge
 import os
 import re
 import time
